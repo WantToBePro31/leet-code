@@ -1,3 +1,11 @@
+
 func mySqrt(x int) int {
-	return int(math.Floor(math.Sqrt(float64(x))))
+	n := 0
+	for n*n < x{
+		n++
+	}
+	if n*n > x {
+		n--
+	}
+	return n
 }
