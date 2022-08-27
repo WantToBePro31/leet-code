@@ -1,11 +1,14 @@
 func removeDuplicates(nums []int) int {
-	res := 1
-	for i := 1; i < len(nums); i++ {
-		if nums[i] == nums[i-1] {
-			continue
+	remain := 0
+    mp := make(map[int]int)
+	for _, val := range nums {
+		if _, found := mp[val]; found {
+			mp[val]++
+		} else {
+			nums[remain] = val
+			mp[val] = 1
+			remain++
 		}
-		nums[res] = nums[i]
-		res++
 	}
-	return res
+	return remain
 }
