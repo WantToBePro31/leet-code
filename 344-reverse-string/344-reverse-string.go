@@ -1,7 +1,7 @@
 func reverseString(s []byte)  {
-    tmp := make([]byte, len(s))
-    for ind, val := range s {
-        tmp[len(s)-ind-1] = val
+    var tmp []byte
+    for i := len(s)-1; i >= 0; i-- {
+        tmp = append(tmp, s[i])
     }
     copy(s, tmp)
 }
