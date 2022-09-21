@@ -1,10 +1,3 @@
-func netralize(num int) int {
-    if num > -1 {
-        return num
-    }
-    return num * -1
-}
-
 func sumEvenAfterQueries(nums []int, queries [][]int) []int {
     sum := 0
     for _, val := range nums {
@@ -16,15 +9,15 @@ func sumEvenAfterQueries(nums []int, queries [][]int) []int {
     for i := 0; i < len(queries); i++ {
         val := queries[i][0]
         ind := queries[i][1]
-        if netralize(nums[ind]) % 2 == 0 {
-            if (netralize(nums[ind] + val)) % 2 == 1 {
-                sum -= nums[ind]
-            } else {
+        if nums[ind] % 2 == 0 {
+            if (nums[ind] + val) % 2 == 0 {
                 sum += val
+            } else {
+                sum -= nums[ind]
             }
             nums[ind] += val
         } else {
-            if (netralize(nums[ind] + val)) % 2 == 0 {
+            if (nums[ind] + val) % 2 == 0 {
                 sum += nums[ind] + val
             }
             nums[ind] += val
