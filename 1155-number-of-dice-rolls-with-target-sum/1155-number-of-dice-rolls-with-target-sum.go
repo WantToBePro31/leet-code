@@ -15,7 +15,6 @@ func numRollsToTarget(n int, k int, target int) int {
         dp[i] = tmp
     }
     dp[0][0] = 1
-    fmt.Println(dp)
     for i := 1; i <= n; i++ {
         for j := 1; j <= target; j++ {
             for a := 1; a <= k; a++ {
