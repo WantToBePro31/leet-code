@@ -1,15 +1,18 @@
 func missingNumber(nums []int) int {
-    sort.Slice(nums, func(i, j int) bool {
-        return nums[i] < nums[j]
-    })
-    mp := make(map[int]int, nums[len(nums)-1])
-    i := 0
+    max := 1
+    for _, _ = range nums {
+        max++
+    }
+    mp := make(map[int]int, max)
     for _, val := range nums {
         mp[val] = 1
+    }
+    i := 0
+    for i < max {
         if _, ok := mp[i]; !ok {
             return i
         }
         i++
     }
-    return i
+    return max-1
 }
