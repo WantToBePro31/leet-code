@@ -1,18 +1,10 @@
 func missingNumber(nums []int) int {
-    max := 1
-    for _, _ = range nums {
-        max++
-    }
-    mp := make(map[int]int, max)
+    max := 0
+    tmp := 0
     for _, val := range nums {
-        mp[val] = 1
+        max++
+        tmp += val
     }
-    i := 0
-    for i < max {
-        if _, ok := mp[i]; !ok {
-            return i
-        }
-        i++
-    }
-    return max-1
+    sum := max*(1+max)/2
+    return sum-tmp
 }
